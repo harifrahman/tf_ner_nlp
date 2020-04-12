@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Remed</title>
+    <!--<link rel="stylesheet" href="{{ url_for('static', filename='styles/bootstrap.min.css') }}">-->
+    <!--<link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">-->
+</head>
+<body>
+    <div class="container con-wrap">
+        <div class="row">
+            <div class="col-sm-12 py-5 col-title"><h1>Index - Home API NER postal address ID</h1></div>
+            <div class="col-lg-6 mb-5">
+                <form action="{{ url_for('submit') }}" method="POST" enctype="multipart/form-data">
+                    <textarea name="text" required></textarea><br>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+            <div class="col-sm-12 mt-5">
+                <!--{% if result %}-->
+                    <!--<p>{{ allPre }}</p>-->
+                    <!--{% for i in result %}-->
+                        <!--<p>{{ i }}</p>-->
+                    <!--{% endfor%}-->
+                <!--{% endif %}-->
+                {% if result %}
+                    <p>Hasil di temukan</p>
+                    <p>{{ result }}</p>
+                {% endif %}
+                <p><b>Input data:</b> {{word}}</p>
+                {% if split %}
+                    {% for item in split %}
+                        <li>{{ item }}</li>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
